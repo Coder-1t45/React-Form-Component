@@ -185,7 +185,22 @@ The `defaultValue` property in the `FormQuestion` type allows you to provide a d
 The form component handles the conversion and rendering of the default values based on the `answerType`.
 
 Additionally, the form component implements a date system that formats the Date class to fit the `input type="date" `structure. This enables users to easily select and submit dates as part of their form answers.
-![alt text](../Pictures/A.PNG)
-![alt text](../Pictures/B.PNG)
-![alt text](https://github.com/[username]/[reponame]/blob/[branch]/image.jpg?raw=true)
-![alt text](https://github.com/[username]/[reponame]/blob/[branch]/image.jpg?raw=true)
+
+# Pictures
+in the left top you can see the result bein saved in array.
+![alt text](https://github.com/Coder-1t45/React-Form-Component/blob/main/Pictures/A.PNG?raw=true)
+
+![alt text](https://github.com/Coder-1t45/React-Form-Component/blob/main/Pictures/B.PNG?raw=true)
+
+![alt text](https://github.com/Coder-1t45/React-Form-Component/blob/main/Pictures/C.PNG?raw=true)
+
+![alt text](https://github.com/Coder-1t45/React-Form-Component/blob/main/Pictures/D.PNG?raw=true)
+
+![alt text](https://github.com/Coder-1t45/React-Form-Component/blob/main/Pictures/E.PNG?raw=true)
+
+![alt text](https://github.com/Coder-1t45/React-Form-Component/blob/main/Pictures/F.PNG?raw=true)
+
+![alt text](https://github.com/Coder-1t45/React-Form-Component/blob/main/Pictures/H.PNG?raw=true)
+
+
+![alt text](https://github.com/Coder-1t45/React-Form-Component/blob/main/Pictures/G.PNG?raw=true)
