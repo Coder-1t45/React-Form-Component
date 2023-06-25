@@ -190,19 +190,19 @@ Additionally, the form component implements a date system that formats the Date 
 
 # Pictures
 in the left top you can see the result bein saved in array.
-![alt text](https://github.com/Coder-1t45/React-Form-Component/blob/main/pictures/A.PNG?raw=true)
+![alt text](https://github.com/Coder-1t45/React-Form-Component/blob/main/Pictures/A.PNG?raw=true)
 
-![alt text](https://github.com/Coder-1t45/React-Form-Component/blob/main/pictures/B.PNG?raw=true)
+![alt text](https://github.com/Coder-1t45/React-Form-Component/blob/main/Pictures/B.PNG?raw=true)
 
-![alt text](https://github.com/Coder-1t45/React-Form-Component/blob/main/pictures/C.PNG?raw=true)
+![alt text](https://github.com/Coder-1t45/React-Form-Component/blob/main/Pictures/C.PNG?raw=true)
 
-![alt text](https://github.com/Coder-1t45/React-Form-Component/blob/main/pictures/D.PNG?raw=true)
+![alt text](https://github.com/Coder-1t45/React-Form-Component/blob/main/Pictures/D.PNG?raw=true)
 
-![alt text](https://github.com/Coder-1t45/React-Form-Component/blob/main/pictures/E.PNG?raw=true)
+![alt text](https://github.com/Coder-1t45/React-Form-Component/blob/main/Pictures/E.PNG?raw=true)
 
-![alt text](https://github.com/Coder-1t45/React-Form-Component/blob/main/pictures/F.PNG?raw=true)
+![alt text](https://github.com/Coder-1t45/React-Form-Component/blob/main/Pictures/F.PNG?raw=true)
 
-![alt text](https://github.com/Coder-1t45/React-Form-Component/blob/main/pictures/H.PNG?raw=true)
+![alt text](https://github.com/Coder-1t45/React-Form-Component/blob/main/Pictures/H.PNG?raw=true)
 
 
-![alt text](https://github.com/Coder-1t45/React-Form-Component/blob/main/pictures/G.PNG?raw=true)
+![alt text](https://github.com/Coder-1t45/React-Form-Component/blob/main/Pictures/G.PNG?raw=true)
