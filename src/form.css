@@ -71,13 +71,13 @@
     display: block;
   }
   
-  div.iform button.option[Data-Selected=true] {
+  div.iform button.option[data-selected=true] {
     color: white;
     background-color: black;
     border-bottom: 1px solid black;
   }
   
-  div.iform button.boolean[Data-Selected=true] {
+  div.iform button.boolean[data-selected=true] {
     background-color: var(--highlight-color);
     font-weight: 600;
     color: white;

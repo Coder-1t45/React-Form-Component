@@ -1,4 +1,4 @@
-import React, { useState, useEffect, createRef} from "react";
+import React, { useState, useEffect, createRef } from "react";
 import "./form.css";
 export type FormQuestion = {
     title: string;
@@ -42,16 +42,34 @@ function DisplayQuestion({
     const [answer, SetAnswer] = useState<Answer | undefined>(undefined);
     const ref = createRef<HTMLDivElement>();
     function chooseButtonClicked(
-        b: boolean | number,
+        b: boolean | number | undefined,
         e: React.MouseEvent<HTMLButtonElement, MouseEvent>
     ) {
-        const buttons = document.querySelectorAll("button.boolean");
-        for (const x of buttons) {
-            x.setAttribute("Data-Selected", "false");
+        if (ref.current) {
+            const buttons = ref.current.querySelectorAll("button.boolean");
+            for (const x of buttons) {
+                x.setAttribute("data-selected", "false");
+            }
+            if (b != undefined)
+                e.currentTarget.setAttribute("data-selected", "true");
         }
-        e.currentTarget.setAttribute("Data-Selected", "true");
-
         SetAnswer(b);
+        if (b != undefined && onAnswer) onAnswer(b);
+    }
+
+    function chooseOptionClicked(
+        b: number,
+        e: React.MouseEvent<HTMLButtonElement, MouseEvent>
+    ) {
+        if (ref.current) {
+            const buttons = ref.current.querySelectorAll("button.option");
+            for (const x of buttons) {
+                x.setAttribute("data-selected", "false");
+            }
+            if (b != -1) e.currentTarget.setAttribute("data-selected", "true");
+        }
+        if (b != -1) SetAnswer(b);
+        else SetAnswer(undefined);
         return false;
     }
 
@@ -65,13 +83,17 @@ function DisplayQuestion({
                         <>
                             <button
                                 className="boolean"
-                                onClick={(e) => chooseButtonClicked(true, e)}
+                                onClick={(evea) => {
+                                    chooseButtonClicked(true, evea);
+                                }}
                             >
                                 True
                             </button>
                             <button
                                 className="boolean"
-                                onClick={(e) => chooseButtonClicked(false, e)}
+                                onClick={(evea) => {
+                                    chooseButtonClicked(false, evea);
+                                }}
                             >
                                 False
                             </button>
@@ -86,9 +108,9 @@ function DisplayQuestion({
                             ).map((value) => (
                                 <button
                                     className="boolean"
-                                    onClick={(e) =>
-                                        chooseButtonClicked(value, e)
-                                    }
+                                    onClick={(evea) => {
+                                        chooseButtonClicked(false, evea);
+                                    }}
                                 >
                                     {value}
                                 </button>
@@ -105,7 +127,7 @@ function DisplayQuestion({
                                     ) : (
                                         question.options.map((v, index) => (
                                             <button
-                                                Data-Selected={
+                                                data-selected={
                                                     answer
                                                         ? (
                                                               answer as number[]
@@ -157,26 +179,27 @@ function DisplayQuestion({
                                     ) : (
                                         question.options.map((v, index) => (
                                             <button
-                                                Data-Selected={
-                                                    answer
-                                                        ? (answer as number) ==
-                                                          index
-                                                        : false
-                                                }
                                                 className="option"
-                                                onClick={() => {
+                                                onClick={(evea) => {
                                                     if (answer == undefined) {
-                                                        SetAnswer(index);
+                                                        chooseOptionClicked(
+                                                            index,
+                                                            evea
+                                                        );
                                                     } else {
                                                         if (
                                                             (answer as number) ==
                                                             index
                                                         ) {
-                                                            SetAnswer(
-                                                                undefined
+                                                            chooseOptionClicked(
+                                                                -1,
+                                                                evea
                                                             );
                                                         } else {
-                                                            SetAnswer(index);
+                                                            chooseOptionClicked(
+                                                                index,
+                                                                evea
+                                                            );
                                                         }
                                                     }
                                                 }}
@@ -306,12 +329,12 @@ function DisplayQuestion({
                             : false)
                     }
                     onClick={() => {
-                        onAnswer && answer ? onAnswer(answer) : "";
+                        onAnswer && answer != undefined ? onAnswer(answer) : "";
                         SetAnswer(undefined);
                         const buttons =
                             document.querySelectorAll("button.boolean");
                         for (const x of buttons) {
-                            x.setAttribute("Data-Selected", "false");
+                            x.setAttribute("data-selected", "false");
                         }
 
                         if (ref.current) {
@@ -344,7 +367,7 @@ function DisplayQuestionAlone({
     const [answer, SetAnswer] = useState<Answer | undefined>(undefined);
 
     useEffect(() => {
-        onAnswer && answer ? onAnswer(answer) : "";
+        onAnswer && answer != undefined ? onAnswer(answer) : "";
     }, [answer]);
     // useEffect(()=>{SetAnswer(undefined)},[])
     const ref = createRef<HTMLDivElement>();
@@ -352,22 +375,43 @@ function DisplayQuestionAlone({
         b: boolean | number,
         e: React.MouseEvent<HTMLButtonElement, MouseEvent>
     ) {
-        const buttons = document.querySelectorAll("button.boolean");
-        for (const x of buttons) {
-            x.setAttribute("Data-Selected", "false");
+        if (ref.current) {
+            const buttons = ref.current.querySelectorAll("button.boolean");
+            for (const x of buttons) {
+                x.setAttribute("data-selected", "false");
+            }
+            e.currentTarget.setAttribute("data-selected", "true");
         }
-        e.currentTarget.setAttribute("Data-Selected", "true");
-
         SetAnswer(b);
-        onAnswer?onAnswer(b):"";
+        onAnswer ? onAnswer(b) : "";
+    }
+
+    function chooseOptionClicked(
+        b: number,
+        e: React.MouseEvent<HTMLButtonElement, MouseEvent>
+    ) {
+        if (ref.current) {
+            const buttons = ref.current.querySelectorAll("button.option");
+            for (const x of buttons) {
+                x.setAttribute("data-selected", "false");
+            }
+            if (b != -1) e.currentTarget.setAttribute("data-selected", "true");
+        }
+        if (b != -1) SetAnswer(b);
+        else SetAnswer(undefined);
+        return false;
     }
 
     return (
-        <div className="alone" Data-ClearEvent={
-            ()=>{
+        <div
+            className="alone"
+            Data-ClearEvent={() => {
                 SetAnswer(undefined);
+            }}
+            style={
+                disabled ?? false ? { opacity: 0.5, pointerEvents: "none" } : {}
             }
-        } style={disabled ?? false ? { opacity: 0.5, pointerEvents:'none' } : {}}>
+        >
             <p className="question alone">{question.title}</p>
             <div ref={ref} style={{ maxWidth: "none" }}>
                 {" "}
@@ -397,9 +441,9 @@ function DisplayQuestionAlone({
                             ).map((value) => (
                                 <button
                                     className="boolean"
-                                    onClick={(e) =>
-                                        chooseButtonClicked(value, e)
-                                    }
+                                    onClick={(evea) => {
+                                        chooseButtonClicked(value, evea);
+                                    }}
                                 >
                                     {value}
                                 </button>
@@ -416,7 +460,7 @@ function DisplayQuestionAlone({
                                     ) : (
                                         question.options.map((v, index) => (
                                             <button
-                                                Data-Selected={
+                                                data-selected={
                                                     answer
                                                         ? (
                                                               answer as number[]
@@ -468,26 +512,27 @@ function DisplayQuestionAlone({
                                     ) : (
                                         question.options.map((v, index) => (
                                             <button
-                                                Data-Selected={
-                                                    answer
-                                                        ? (answer as number) ==
-                                                          index
-                                                        : false
-                                                }
                                                 className="option"
-                                                onClick={() => {
+                                                onClick={(evea) => {
                                                     if (answer == undefined) {
-                                                        SetAnswer(index);
+                                                        chooseOptionClicked(
+                                                            index,
+                                                            evea
+                                                        );
                                                     } else {
                                                         if (
                                                             (answer as number) ==
                                                             index
                                                         ) {
-                                                            SetAnswer(
-                                                                undefined
+                                                            chooseOptionClicked(
+                                                                -1,
+                                                                evea
                                                             );
                                                         } else {
-                                                            SetAnswer(index);
+                                                            chooseOptionClicked(
+                                                                index,
+                                                                evea
+                                                            );
                                                         }
                                                     }
                                                 }}
@@ -678,19 +723,20 @@ function Form({
 
         return (
             <div className="iform">
+                {JSON.stringify(answers)}
                 {submitted == false ? (
                     <>
-                        <div ref={ref} className="questions" >
+                        <div ref={ref} className="questions">
                             {range(1, PAGES[pIndex]).map((v) => {
                                 var lastsIds = -1;
                                 for (let index = 0; index < pIndex; index++) {
                                     lastsIds += PAGES[index];
                                 }
                                 const current = lastsIds + v;
-                                console.log({ current });
                                 return (
                                     <>
-                                        <DisplayQuestionAlone key={current}
+                                        <DisplayQuestionAlone
+                                            key={current}
                                             disabled={answers.length < current}
                                             onAnswer={(arg: Answer) => {
                                                 if (answers.length == current) {
@@ -735,12 +781,12 @@ function Form({
                                             if (ref.current) {
                                                 // List all Text Inputs
 
-                                                
                                                 ref.current
                                                     .querySelectorAll("input")
                                                     .forEach((v) => {
-                                                        (v as HTMLInputElement).value = "";
-                                                        
+                                                        (
+                                                            v as HTMLInputElement
+                                                        ).value = "";
                                                     });
                                             }
                                         }
@@ -794,12 +840,13 @@ function Form({
         const [qIndex, SetIndex] = useState<number>(0);
         const [answers, SetAnswers] = useState<Array<Answer>>([]);
         const [submitted, SetSubmitted] = useState<boolean>(false);
-        // TODO: Handle Pages!! example [2,3,4] the first 2 question in 1 page and then 3 question and then 4 question, later that. only 1 q in 1 p [q = question, p = page]
         return (
             <div className="iform">
+                {JSON.stringify(answers)}
                 {submitted == false ? (
                     <>
-                        <DisplayQuestion key={qIndex}
+                        <DisplayQuestion
+                            key={qIndex}
                             isSubmitting={qIndex == questions.length - 1}
                             onAnswer={(arg: Answer) => {
                                 if (answers.length == qIndex) {
