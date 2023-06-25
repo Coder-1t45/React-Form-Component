@@ -185,3 +185,7 @@ The `defaultValue` property in the `FormQuestion` type allows you to provide a d
 The form component handles the conversion and rendering of the default values based on the `answerType`.
 
 Additionally, the form component implements a date system that formats the Date class to fit the `input type="date" `structure. This enables users to easily select and submit dates as part of their form answers.
+![alt text](../Pictures/A.PNG)
+![alt text](../Pictures/B.PNG)
+![alt text](https://github.com/[username]/[reponame]/blob/[branch]/image.jpg?raw=true)
+![alt text](https://github.com/[username]/[reponame]/blob/[branch]/image.jpg?raw=true)
