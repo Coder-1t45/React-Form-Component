@@ -1,9 +1,11 @@
 # Customizable Form Component
-i did this insted of a full react project (maybe later). i did this for the experience, gaining knowledge (which most of that i already knew) and show progress of my learning. the rest of this `README.md` was written by chat-gpt. the way of explaining he use can surpasses mine.
+I did this insted of a full react project (maybe later).I did this for the experience, gaining knowledge (which most of that i already knew) and show progress of my learning. the rest of this `README.md` was written by chat-gpt. the way of explaining he use can surpasses mine.
 
 The Form Component was written with TypeScript and React.js without any help of chat-gpt or learning sites, all from my previus knowledge or use of React in the past (which may involve chat-gpt back in those days).
 
-The Form Component script includes 870 lines of code (after using Prettier).
+The Form Component script includes 916 lines of code (after using Prettier).
+
+**THE FORM COMPONENET IS WRITTEN IN THE FILE src/Form.tsx**
 
 # Introduction
 ## How to Use
@@ -188,19 +190,19 @@ Additionally, the form component implements a date system that formats the Date 
 
 # Pictures
 in the left top you can see the result bein saved in array.
-![alt text](https://github.com/Coder-1t45/React-Form-Component/blob/main/Pictures/A.PNG?raw=true)
+![alt text](https://github.com/Coder-1t45/React-Form-Component/blob/main/pictures/A.PNG?raw=true)
 
-![alt text](https://github.com/Coder-1t45/React-Form-Component/blob/main/Pictures/B.PNG?raw=true)
+![alt text](https://github.com/Coder-1t45/React-Form-Component/blob/main/pictures/B.PNG?raw=true)
 
-![alt text](https://github.com/Coder-1t45/React-Form-Component/blob/main/Pictures/C.PNG?raw=true)
+![alt text](https://github.com/Coder-1t45/React-Form-Component/blob/main/pictures/C.PNG?raw=true)
 
-![alt text](https://github.com/Coder-1t45/React-Form-Component/blob/main/Pictures/D.PNG?raw=true)
+![alt text](https://github.com/Coder-1t45/React-Form-Component/blob/main/pictures/D.PNG?raw=true)
 
-![alt text](https://github.com/Coder-1t45/React-Form-Component/blob/main/Pictures/E.PNG?raw=true)
+![alt text](https://github.com/Coder-1t45/React-Form-Component/blob/main/pictures/E.PNG?raw=true)
 
-![alt text](https://github.com/Coder-1t45/React-Form-Component/blob/main/Pictures/F.PNG?raw=true)
+![alt text](https://github.com/Coder-1t45/React-Form-Component/blob/main/pictures/F.PNG?raw=true)
 
-![alt text](https://github.com/Coder-1t45/React-Form-Component/blob/main/Pictures/H.PNG?raw=true)
+![alt text](https://github.com/Coder-1t45/React-Form-Component/blob/main/pictures/H.PNG?raw=true)
 
 
-![alt text](https://github.com/Coder-1t45/React-Form-Component/blob/main/Pictures/G.PNG?raw=true)
+![alt text](https://github.com/Coder-1t45/React-Form-Component/blob/main/pictures/G.PNG?raw=true)
