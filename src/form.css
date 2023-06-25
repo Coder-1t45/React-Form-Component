@@ -1,0 +1,156 @@
+:root {
+    --font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    --background-color: rgba(0, 0, 0, 0);
+    --primary-color: black;
+    --secondary-color: lightgray;
+    --highlight-color: rgb(39, 73, 185);
+  }
+  
+  div.iform * {
+    font-family: var(--font-family);
+  }
+  
+  div.iform div.questions {
+    position: absolute;
+    top: 50%;
+    right: 50%;
+    transform: translateX(50%) translateY(-50%);
+    padding-top: 50px;
+  }
+  
+  div.iform div.questions div.alone {
+    margin-top: 30px;
+  }
+  
+  div.iform button.forward,
+  div.iform button.backward,
+  div.iform button.submit {
+    background-color: var(--background-color);
+    border: none;
+    outline: none;
+    cursor: pointer;
+  }
+  
+  div.iform button.forward:disabled,
+  div.iform button.backward:disabled,
+  div.iform button.submit:disabled {
+    opacity: 0;
+    pointer-events: none;
+  }
+  
+  div.iform button.boolean {
+    background-color: var(--secondary-color);
+    color: black;
+    border: none;
+    outline: none;
+    margin: 0px 2px;
+    padding: 5px 15px;
+    cursor: pointer;
+  }
+  
+  div.iform div.options {
+    align-items: start;
+  }
+  
+  div.iform button.option {
+    display: block;
+    background-color: var(--background-color);
+    color: black;
+    border: none;
+    outline: none;
+    margin: 2px 0px;
+    padding: 5px 15px;
+    cursor: pointer;
+    width: 100%;
+    text-align: left;
+    border-bottom: 1px solid black;
+  }
+  
+  div.iform button.option::before {
+    justify-content: left;
+    display: block;
+  }
+  
+  div.iform button.option[Data-Selected=true] {
+    color: white;
+    background-color: black;
+    border-bottom: 1px solid black;
+  }
+  
+  div.iform button.boolean[Data-Selected=true] {
+    background-color: var(--highlight-color);
+    font-weight: 600;
+    color: white;
+  }
+  
+  div.iform button.forward {
+    position: absolute;
+    top: 50%;
+    right: 0;
+    margin-right: 10px;
+    transform: translateY(-50%);
+  }
+  
+  div.iform button.backward {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    margin-left: 10px;
+    transform: translateY(-50%);
+  }
+  
+  div.iform p.question {
+    font-weight: 600;
+    font-family: var(--font-family);
+    margin: 0;
+    margin-bottom: 10px;
+    text-align: center;
+  }
+  
+  div.iform button.submit {
+    background-color: var(--primary-color);
+    color: white;
+    padding: 5px 25px;
+    margin-top: 50px;
+  }
+  
+  div.iform input[type=text],
+  div.iform input[type=number],
+  div.iform input[type=date] {
+    border: none;
+    border-bottom: 1px solid black;
+  }
+  
+  div.iform input[type=text]:focus,
+  div.iform input[type=number]:focus,
+  div.iform input[type=date]:focus {
+    outline: none;
+  }
+  
+  div.iform input[type=text]::placeholder,
+  div.iform input[type=number]::placeholder {
+    font-style: italic;
+  }
+  
+  div.iform p.afterText {
+    position: absolute;
+    top: 50%;
+    right: 50%;
+    transform: translateX(50%) translateY(-50%);
+  }
+  
+  div.iform progress {
+    bottom: 0%;
+    width: 100%;
+    left: 0%;
+    position: absolute;
+    height: 4px;
+    margin: 0;
+    padding: 0;
+  }
+  
+  div.iform input[type=range] {
+    width: 400px;
+    height: 2px;
+  }
+  
